@@ -1,10 +1,12 @@
 package frames;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import menus.GEMenuBar;
-import constans.GEConstants;
+import constants.GEConstants;
 
 @SuppressWarnings("serial")
 public class GEMainFrame extends JFrame{
@@ -13,7 +15,10 @@ public class GEMainFrame extends JFrame{
 			new GEMainFrame(GEConstants.TITLE_MAINFRAME);
 	private GEDrawingPanel drawingPanel;
 	private GEMenuBar menuBar;
-	private GEMainFrame(String title){
+	
+	private GEToolbar shapeToolbar;
+	
+	GEMainFrame(String title){
 		super(title);
 		
 		drawingPanel = new GEDrawingPanel();
@@ -21,6 +26,9 @@ public class GEMainFrame extends JFrame{
 		
 		menuBar = new GEMenuBar();
 		setJMenuBar(menuBar);
+		
+		shapeToolbar = new GEToolbar(GEConstants.TITLE_SHAPETOOLBAR);
+		add(BorderLayout.NORTH, shapeToolbar);
 	}
 	
 	public static GEMainFrame getInstance(){

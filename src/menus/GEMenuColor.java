@@ -3,7 +3,7 @@ package menus;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import constans.GEConstants.EColorMenuItems;
+import constants.GEConstants.EColorMenuItems;
 
 public class GEMenuColor extends JMenu{
 	public GEMenuColor(String label){

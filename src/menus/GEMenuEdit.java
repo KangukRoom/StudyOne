@@ -3,7 +3,7 @@ package menus;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import constans.GEConstants.EEditMenuItems;
+import constants.GEConstants.EEditMenuItems;
 
 public class GEMenuEdit extends JMenu{
 	public GEMenuEdit(String label){

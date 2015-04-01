@@ -2,7 +2,7 @@ package menus;
 
 import javax.swing.JMenuBar;
 
-import constans.GEConstants;
+import constants.GEConstants;
 
 public class GEMenuBar extends JMenuBar{
 	private GEMenuFile fileMenu;
