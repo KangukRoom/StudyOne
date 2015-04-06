@@ -7,33 +7,41 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputAdapter;
 
-import shapes.GERectangle;
+import shapes.GEShape;
 import constants.GEConstants;
+import constants.GEConstants.EToolBarButtons;
 
 public class GEDrawingPanel extends JPanel{
 	private MouseDrawingHandler drawingHandler;
-	private GERectangle rectangle;
+	
+	private GEShape currentShape;
+	
+	private EToolBarButtons selectShape;
 	
 	public GEDrawingPanel(){
 		super();
 		drawingHandler = new MouseDrawingHandler();
 		addMouseListener(drawingHandler);
 		addMouseMotionListener(drawingHandler);
+	
 		this.setForeground(GEConstants.FOREGROUND_COLOR);
 		this.setBackground(GEConstants.BACKGROUND_COLOR);
 	}
 	
-	private void initDraw(Point originP){
-		rectangle = new GERectangle();
-		rectangle.initDraw(originP);
+	public void setCurrentShape(GEShape currentShape){
+		this.currentShape = currentShape;
+	}
+	
+	private void initDraw(Point startP){
+		currentShape.initDraw(startP);
 	}
 	
 	private void animateDraw(Point currentP){
 		Graphics2D g2D = (Graphics2D)getGraphics();
 		g2D.setXORMode(g2D.getBackground());
-		g2D.draw(rectangle.getRectangle());
-		rectangle.setCoordinate(currentP);
-		g2D.draw(rectangle.getRectangle());
+		currentShape.draw(g2D);
+		currentShape.setCoordinate(currentP);
+		currentShape.draw(g2D);
 	}
 	
 	private class MouseDrawingHandler extends MouseInputAdapter{

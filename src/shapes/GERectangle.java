@@ -3,11 +3,10 @@ package shapes;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-public class GERectangle {
-	private Point startP;
-	private Rectangle rectangle;
+public class GERectangle extends GEShape{
+
 	public GERectangle(){
-		rectangle = new Rectangle();
+		super(new Rectangle());
 	}
 	
 	public void initDraw(Point startP){
@@ -15,10 +14,8 @@ public class GERectangle {
 	}
 	
 	public void setCoordinate(Point currentP){
-		rectangle.setFrame(startP.x, startP.y, currentP.x - startP.x ,currentP.y - startP.y);
+		Rectangle tempRectangle =(Rectangle)myShape;
+		tempRectangle.setFrame(startP.x, startP.y, currentP.x ,currentP.y);
 	}
 
-	public Rectangle getRectangle(){
-		return rectangle;
-	}
 }
